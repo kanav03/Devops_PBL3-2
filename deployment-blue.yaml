@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-blue
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: flask
+      version: blue
+  template:
+    metadata:
+      labels:
+        app: flask
+        version: blue
+    spec:
+      containers:
+      - name: flask-app
+        image: REPLACE_IMAGE
+        ports:
+        - containerPort: 5000
+        env:
+        - name: THEME_COLOR
+          value: "#0d6efd"
+        - name: THEME_NAME
+          value: "Blue Environment"

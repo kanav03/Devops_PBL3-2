@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-green
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: flask
+      version: green
+  template:
+    metadata:
+      labels:
+        app: flask
+        version: green
+    spec:
+      containers:
+      - name: flask-app
+        image: REPLACE_IMAGE
+        ports:
+        - containerPort: 5000
+        env:
+        - name: THEME_COLOR
+          value: "#28a745"
+        - name: THEME_NAME
+          value: "Green Environment"
