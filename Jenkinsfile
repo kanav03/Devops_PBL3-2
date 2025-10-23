@@ -1,10 +1,10 @@
 pipeline {
   agent any
   environment {
-    DOCKER_IMAGE = "yourdockerhub/flask-app"
+    DOCKER_IMAGE = "kanav2003/flask-app"
   }
   stages {
-    stage('Checkout') { steps { git 'https://github.com/your-username/blue-green-flask.git' } }
+    stage('Checkout') { steps { git 'https://github.com/kanav03/Devops_PBL3-2.git' } }
     stage('Build Docker') {
       steps {
         sh 'docker build -t $DOCKER_IMAGE:${BUILD_NUMBER} .'
