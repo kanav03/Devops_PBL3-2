@@ -2,6 +2,7 @@ pipeline {
   agent any
   environment {
     DOCKER_IMAGE = "kanav2003/flask-app"
+    PATH = "/usr/local/bin:${env.PATH}"
   }
   stages {
     stage('Build Docker') {
